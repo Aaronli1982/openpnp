@@ -235,7 +235,7 @@ public class MainFrame extends JFrame {
 
 		mnCommands.add(new JMenuItem(machineControlsPanel.homeAction));
 		mnCommands.add(new JMenuItem(machineControlsPanel.goToZeroAction));
-		mnCommands.add(new JMenuItem(calibrationAction));
+		mnCommands.add(new JMenuItem(machineControlsPanel.calibrationAction));
 		
 		// Help
 		/////////////////////////////////////////////////////////////////////
@@ -596,15 +596,6 @@ public class MainFrame extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			about();
-		}
-	};
-	
-	private Action calibrationAction = new AbstractAction("Calibration") {
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
-			MachineCalibration d = new MachineCalibration(MainFrame.this);
-			d.pack();
-			d.setVisible(true);
 		}
 	};
 	

@@ -188,6 +188,7 @@ public class MachineControlsPanel extends JPanel {
 		jogControlsPanel.setEnabled(enabled);
 		targetCameraAction.setEnabled(enabled);
 		targetToolAction.setEnabled(enabled);
+		calibrationAction.setEnabled(enabled);
 	}
 	
 	public void updateDros() {
