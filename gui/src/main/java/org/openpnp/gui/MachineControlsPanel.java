@@ -634,6 +634,16 @@ public class MachineControlsPanel extends JPanel {
 		}
 	};
 	
+	@SuppressWarnings("serial")
+	public Action calibrationAction = new AbstractAction("Calibration") {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			MachineCalibration d = new MachineCalibration((Frame) getTopLevelAncestor());
+			d.pack();
+			d.setVisible(true);
+		}
+	};
+	
 	private MachineListener machineListener = new MachineListener.Adapter() {
 		@Override
 		public void machineHeadActivity(Machine machine, Head head) {
