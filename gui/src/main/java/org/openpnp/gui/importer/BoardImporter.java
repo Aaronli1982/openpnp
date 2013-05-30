@@ -21,8 +21,40 @@
 
 package org.openpnp.gui.importer;
 
+import java.awt.Frame;
+
 import org.openpnp.model.Board;
 
+/**
+ * A simple interface describing a class that can import a Board definition.
+ */
 public interface BoardImporter {
-	public Board importBoard() throws Exception;
+    /**
+     * Called by the controlling program to allow the importer to do it's work.
+     * This method should return a Board with as much information as the
+     * importer can supply populated. It should not set the File property of the
+     * Board.
+     * 
+     * If the importer requires a user interface it is suggested that the user
+     * interface be implemented as an application modal dialog and that this
+     * method blocks until the dialog is complete. See the setOwner(Frame)
+     * method for more information about implementing a user interface.
+     * 
+     * @return
+     * @throws Exception
+     */
+    public Board importBoard() throws Exception;
+
+    /**
+     * Sets the owning Frame for the importer. This method will be called by the
+     * application before importBoard() is called. If the importer requires a
+     * user interface it is suggested that the user interface be implemented as
+     * an application modal dialog and that this method blocks until the dialog
+     * is complete. The Frame passed to this method can be used as the owner of
+     * the dialog. If the importer does not require a user interface it can
+     * ignore this method.
+     * 
+     * @param frame
+     */
+    public void setOwner(Frame frame);
 }

@@ -927,9 +927,11 @@ public class JobPanel extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			if (getSelectedBoardLocation() == null) {
+			    MessageBoxes.errorBox(getTopLevelAncestor(), "No Board Selected", "Please select an existing board to import placements into.");
 				return;
 			}
-			BoardImporter importer = new MountsmdUlpImporter(JOptionPane.getFrameForComponent(JobPanel.this));
+			BoardImporter importer = new MountsmdUlpImporter();
+			importer.setOwner(JOptionPane.getFrameForComponent(JobPanel.this));
 			try {
 				Board importedBoard = importer.importBoard();
 				Board existingBoard = getSelectedBoardLocation().getBoard();
